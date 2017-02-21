@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsignmentShopLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,20 @@ using System.Windows.Forms;
 
 namespace ConsigmentShopUI
 {
-    public partial class Form1 : Form
+    public partial class ConsignmentShop : Form
     {
-        public Form1()
+        private Store store = new Store();
+
+        public ConsignmentShop()
         {
             InitializeComponent();
+        }
+
+       private void SetupData()
+        {
+
+        }
+
         }
     }
 }
