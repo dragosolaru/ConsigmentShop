@@ -36,6 +36,10 @@
             this.shoppingCartListbox = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.makePurchase = new System.Windows.Forms.Button();
+            this.vendorListBoxLabel = new System.Windows.Forms.Label();
+            this.vendorListBox = new System.Windows.Forms.ListBox();
+            this.storeProfitLabel = new System.Windows.Forms.Label();
+            this.storeProfitValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // headerText
@@ -115,11 +119,54 @@
             this.makePurchase.UseVisualStyleBackColor = true;
             this.makePurchase.Click += new System.EventHandler(this.makePurchase_Click);
             // 
+            // vendorListBoxLabel
+            // 
+            this.vendorListBoxLabel.AutoSize = true;
+            this.vendorListBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vendorListBoxLabel.Location = new System.Drawing.Point(8, 260);
+            this.vendorListBoxLabel.Name = "vendorListBoxLabel";
+            this.vendorListBoxLabel.Size = new System.Drawing.Size(76, 20);
+            this.vendorListBoxLabel.TabIndex = 8;
+            this.vendorListBoxLabel.Text = "Vendors";
+            // 
+            // vendorListBox
+            // 
+            this.vendorListBox.FormattingEnabled = true;
+            this.vendorListBox.ItemHeight = 20;
+            this.vendorListBox.Location = new System.Drawing.Point(12, 283);
+            this.vendorListBox.Name = "vendorListBox";
+            this.vendorListBox.Size = new System.Drawing.Size(290, 144);
+            this.vendorListBox.TabIndex = 7;
+            // 
+            // storeProfitLabel
+            // 
+            this.storeProfitLabel.AutoSize = true;
+            this.storeProfitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.storeProfitLabel.Location = new System.Drawing.Point(455, 283);
+            this.storeProfitLabel.Name = "storeProfitLabel";
+            this.storeProfitLabel.Size = new System.Drawing.Size(106, 20);
+            this.storeProfitLabel.TabIndex = 9;
+            this.storeProfitLabel.Text = "Store Profit:";
+            // 
+            // storeProfitValue
+            // 
+            this.storeProfitValue.AutoSize = true;
+            this.storeProfitValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.storeProfitValue.Location = new System.Drawing.Point(562, 283);
+            this.storeProfitValue.Name = "storeProfitValue";
+            this.storeProfitValue.Size = new System.Drawing.Size(54, 20);
+            this.storeProfitValue.TabIndex = 10;
+            this.storeProfitValue.Text = "€0.00";
+            // 
             // ConsignmentShop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(761, 385);
+            this.ClientSize = new System.Drawing.Size(773, 511);
+            this.Controls.Add(this.storeProfitValue);
+            this.Controls.Add(this.storeProfitLabel);
+            this.Controls.Add(this.vendorListBoxLabel);
+            this.Controls.Add(this.vendorListBox);
             this.Controls.Add(this.makePurchase);
             this.Controls.Add(this.shoppingCartListboxLabel);
             this.Controls.Add(this.shoppingCartListbox);
@@ -147,6 +194,10 @@
         private System.Windows.Forms.ListBox shoppingCartListbox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button makePurchase;
+        private System.Windows.Forms.Label vendorListBoxLabel;
+        private System.Windows.Forms.ListBox vendorListBox;
+        private System.Windows.Forms.Label storeProfitLabel;
+        private System.Windows.Forms.Label storeProfitValue;
     }
 }
 

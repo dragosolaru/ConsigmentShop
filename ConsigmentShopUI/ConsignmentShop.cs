@@ -17,11 +17,16 @@ namespace ConsigmentShopUI
         private List<Item> shoppingCartData = new List<Item>();
         BindingSource itemsBinding = new BindingSource();
         BindingSource cartBinding = new BindingSource();
+        BindingSource vendorsBinding = new BindingSource();
+        private decimal StoreProfit = 0;
+
+
         public ConsignmentShop()
         {
             InitializeComponent();
             SetupData();
-            itemsBinding.DataSource = store.Items;
+
+            itemsBinding.DataSource = store.Items.Where(x=>x.Sold==false).ToList();
             itemsListbox.DataSource = itemsBinding;
 
             itemsListbox.DisplayMember = "Display";
@@ -32,11 +37,18 @@ namespace ConsigmentShopUI
 
             shoppingCartListbox.DisplayMember = "Display";
             shoppingCartListbox.ValueMember = "Display";
+
+            vendorsBinding.DataSource = store.Vendors;
+            vendorListBox.DataSource = vendorsBinding;
+
+            vendorListBox.DisplayMember = "Display";
+            vendorListBox.ValueMember = "Display";
         }
         public void SetupData()
         {
             store.Vendors.Add(new Vendor { FirstName = "Bill", LastName = "Smith" });
             store.Vendors.Add(new Vendor { FirstName = "Sue", LastName = "Jones" });
+            store.Vendors.Add(new Vendor { FirstName = "Michael", LastName = "Trim", Commission = .6 });
 
             store.Items.Add(new Item
             {
@@ -66,6 +78,13 @@ namespace ConsigmentShopUI
                 Price = 1.50M,
                 Owner = store.Vendors[0]
             });
+            store.Items.Add(new Item
+            {
+                Title = "50 shades of Gray",
+                Description = "A book about Love",
+                Price = 10M,
+                Owner = store.Vendors[2]
+            });
 
             store.Name = "Seconds are Better";
         }
@@ -74,10 +93,7 @@ namespace ConsigmentShopUI
         {
             Item selectedItem = (Item)itemsListbox.SelectedItem;
             shoppingCartData.Add(selectedItem);
-
-            cartBinding.ResetBindings(false);
-
-          
+            cartBinding.ResetBindings(false);         
         }
 
         private void makePurchase_Click(object sender, EventArgs e)
@@ -85,9 +101,18 @@ namespace ConsigmentShopUI
             foreach (Item item in shoppingCartData)
             {
                 item.Sold = true;
+                item.Owner.PaymnetDue += (decimal)item.Owner.Commission * item.Price;
+                StoreProfit += (1 - (decimal)item.Owner.Commission) * item.Price;
+                
             }
             shoppingCartData.Clear();
+
+            itemsBinding.DataSource = store.Items.Where(x => x.Sold == false).ToList();
+            storeProfitValue.Text = string.Format("€{0}", StoreProfit);
             cartBinding.ResetBindings(false);
+            itemsBinding.ResetBindings(false);
+            vendorsBinding.ResetBindings(false);
+            
         }
     }
 }
