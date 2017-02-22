@@ -47,7 +47,6 @@
             this.headerText.Size = new System.Drawing.Size(405, 37);
             this.headerText.TabIndex = 0;
             this.headerText.Text = "Consignment Shop Demo";
-            this.headerText.Click += new System.EventHandler(this.label1_Click);
             // 
             // itemsListbox
             // 
@@ -86,7 +85,6 @@
             this.shoppingCartListboxLabel.Size = new System.Drawing.Size(124, 20);
             this.shoppingCartListboxLabel.TabIndex = 5;
             this.shoppingCartListboxLabel.Text = "Shopping Cart";
-            this.shoppingCartListboxLabel.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // shoppingCartListbox
             // 
@@ -96,7 +94,6 @@
             this.shoppingCartListbox.Name = "shoppingCartListbox";
             this.shoppingCartListbox.Size = new System.Drawing.Size(290, 144);
             this.shoppingCartListbox.TabIndex = 4;
-            this.shoppingCartListbox.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -106,6 +103,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Add to Cart ->";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.addToCart_Click);
             // 
             // makePurchase
             // 
@@ -115,6 +113,7 @@
             this.makePurchase.TabIndex = 6;
             this.makePurchase.Text = "Purchase";
             this.makePurchase.UseVisualStyleBackColor = true;
+            this.makePurchase.Click += new System.EventHandler(this.makePurchase_Click);
             // 
             // ConsignmentShop
             // 
